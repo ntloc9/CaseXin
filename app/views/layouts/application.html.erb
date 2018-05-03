@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Invoker</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag 'main_styles' %>
-    <%= stylesheet_link_tag 'responsive' %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'isotone' %>
-    <%= javascript_include_tag 'custom' %>
-  </head>
+<head>
+  <title>Invoker</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'main_styles' %>
+  <%= stylesheet_link_tag 'responsive' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'isotone' %>
+  <%= javascript_include_tag 'custom' %>
+</head>
 
-  <body class="<%= yield (:body_class) %>">
-<div class="super_container">
+<body class="<%= yield (:body_class) %>">
+
+  <div class="super_container">
 
 	<!-- Header -->
 
@@ -58,7 +59,11 @@
 								</li>
 								<li class="account">
 									<a href="#">
-                    					My Account
+                    <% if user_signed_in? %>
+            				  <%= current_user.name %>
+                    <% else %>
+                      Account
+                    <% end %>
 										<i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="account_selection">
@@ -147,16 +152,25 @@
 					</ul>
 				</li>
 				<li class="menu_item has-children">
-					<a href="#">
-						My Account
+					<a>
+            <% if user_signed_in? %>
+              <%= current_user.name %>
+            <% else %>
+              Account
+            <% end %>
 						<i class="fa fa-angle-down"></i>
 					</a>
 					<ul class="menu_selection">
-						<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-						<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+            <% if user_signed_in? %>
+              <li><a><%= link_to edit_user_registration_path do %><i class="fa fa-user-cicle"></i>Account<% end %></a></li>
+              <li><a><%= link_to destroy_user_session_path, method: :delete do %><i class="fa fa-sign-out" aria-hidden="true"></i>Log Out<% end %> </a></li>
+            <% else %>
+              <li><a><%= link_to new_user_session_path do %><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In<% end %></a></li>
+              <li><a><%= link_to new_user_registration_path do %><i class="fa fa-user-plus" aria-hidden="true"></i>Register<% end %></a></li>
+            <% end %>
 					</ul>
 				</li>
-				<li class="menu_item"><a href="#">home</a></li>
+				<li class="menu_item"><li><%= link_to root_path do %>Home<% end %></li></li>
 				<li class="menu_item"><a href="#">shop</a></li>
 				<li class="menu_item"><a href="#">promotion</a></li>
 				<li class="menu_item"><a href="#">pages</a></li>
@@ -167,7 +181,7 @@
 	</div>
 <!-- Content -->
 
-<div class="container">
+  <div class="container">
   <%= yield %>
 </div>
 

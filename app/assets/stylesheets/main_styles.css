@@ -98,7 +98,7 @@ p a
 }
 a, a:hover, a:visited, a:active, a:link
 {
-	text-decoration: none;
+	text-decoration: none!important;
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
@@ -503,9 +503,10 @@ section
 	display: block;
 	position: absolute;
 	right: 0;
+	left: -3px;
 	top: 120%;
 	margin: 0;
-	width: 100%;
+	width: 115%;
 	background: #FFFFFF;
 	visibility: hidden;
 	opacity: 0;
@@ -675,6 +676,7 @@ ul.navbar_menu {
 .hamburger_container:hover i
 {
 	color: #b5aec4;
+	text-decoration: none;
 }
 .hamburger_menu
 {
@@ -732,6 +734,7 @@ ul.navbar_menu {
 .hamburger_close:hover i
 {
 	color: #b5aec4;
+	text-decoration: none;
 }
 .hamburger_menu_content
 {
@@ -760,6 +763,7 @@ ul.navbar_menu {
 .menu_item > a:hover
 {
 	color: #b5aec4;
+	text-decoration: none;
 }
 .menu_item > a > i
 {
@@ -806,6 +810,7 @@ ul.navbar_menu {
 .menu_selection li a:hover
 {
 	color: #b5aec4;
+	text-decoration: none;
 }
 .menu_selection li:last-child a
 {
