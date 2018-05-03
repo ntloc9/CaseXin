@@ -162,7 +162,7 @@
 					</a>
 					<ul class="menu_selection">
             <% if user_signed_in? %>
-              <li><a><%= link_to edit_user_registration_path do %><i class="fa fa-user-cicle"></i>Account<% end %></a></li>
+              <li><a><%= link_to edit_user_registration_path do %><i class="fa fa-user-cicle"></i>Profile<% end %></a></li>
               <li><a><%= link_to destroy_user_session_path, method: :delete do %><i class="fa fa-sign-out" aria-hidden="true"></i>Log Out<% end %> </a></li>
             <% else %>
               <li><a><%= link_to new_user_session_path do %><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In<% end %></a></li>

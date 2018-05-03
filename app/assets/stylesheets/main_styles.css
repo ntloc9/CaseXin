@@ -1734,17 +1734,26 @@ ul.navbar_menu {
 	width: 300px;
 	height: 46px;
 	background: #FFFFFF;
-	padding-left: 20px;
-	margin: 15px 0;
+	padding-left: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #d8d1d1;
+	border-radius: 8px;
 }
 
 #signin_password{
 	width: 300px;
 	height: 46px;
 	background: #FFFFFF;
-	padding-left: 20px;
-	margin-bottom: 15px
+	padding-left: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #d8d1d1;
+	border-radius: 8px;
 }
+
+input#signin_password::placeholder {
+    font-size: 15px!important;
+}
+
 #login_btn {
     margin-bottom: 15px;
 		background: #fe4c50;
@@ -1758,8 +1767,10 @@ ul.navbar_menu {
 	width: 300px;
 	height: 46px;
 	background: #FFFFFF;
-	padding-left: 20px;
-	margin: 15px
+	padding-left: 10px;
+	margin: 15px;
+	border: 1px solid #d8d1d1;
+	border-radius: 8px;
 }
 
 #register_btn{
@@ -1772,4 +1783,20 @@ ul.navbar_menu {
 }
 .khongpadding{
 	padding-left: 0px!important;
+}
+
+.labelfix{
+	float: right;
+	margin-top: 11px
+}
+.lablefixright{
+	padding-right: 0!important;
+}
+.lablefixrightcf{
+	padding-right: 0!important;
+}
+.labelfixcf{
+	float: right;
+	margin-top: 11px;
+	width: 120%;
 }
