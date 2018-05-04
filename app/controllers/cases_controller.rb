@@ -1,10 +1,11 @@
 class CasesController < ApplicationController
   before_action :set_case, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /cases
   # GET /cases.json
   def index
-    @cases = Case.all
+    @cases = Case.all.order("created_at desc")
   end
 
   # GET /cases/1
@@ -14,7 +15,7 @@ class CasesController < ApplicationController
 
   # GET /cases/new
   def new
-    @case = Case.new
+    @case = current_user.cases.build
   end
 
   # GET /cases/1/edit
@@ -24,7 +25,7 @@ class CasesController < ApplicationController
   # POST /cases
   # POST /cases.json
   def create
-    @case = Case.new(case_params)
+    @case = current_user.cases.build(case_params)
 
     respond_to do |format|
       if @case.save
@@ -69,7 +70,7 @@ class CasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def case_params
-      params.require(:case).permit(:brand, :model, :price, :title)
+      params.require(:case).permit(:brand, :model, :price, :title, :description, :image)
     end
 
 end

@@ -862,7 +862,7 @@ ul.navbar_menu {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
-	margin-top: 150px;
+	/* margin-top: 150px; */
 }
 .main_slider_content
 {
@@ -1723,7 +1723,8 @@ ul.navbar_menu {
 
 /*Form*/
 .dangnhap{
-	margin-top: 180px;
+	margin-top: 20px;
+	padding-top: 20px;
 }
 
 .dangki{
@@ -1799,4 +1800,13 @@ input#signin_password::placeholder {
 	float: right;
 	margin-top: 11px;
 	width: 120%;
+}
+.newcase{
+	margin-top: 180px;
+}
+.thongbao{
+	margin-top: 152px;
+}
+.alert{
+	margin-bottom: 0!important;
 }

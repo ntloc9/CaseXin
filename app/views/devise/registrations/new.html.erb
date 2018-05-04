@@ -6,6 +6,9 @@
 
     <div class="form-inputs">
       <div class="col-md-4 col-md-offset-4 khongpadding">
+        <%= f.text_field :name, required: true, id: "register_email", autofocus: true, placeholder: "Enter your name" %>
+      </div>
+      <div class="col-md-4 col-md-offset-4 khongpadding">
         <%= f.email_field :email, required: true, id: "register_email", autofocus: true, placeholder: "Enter your email" %>
       </div>
       <div class="col-md-4 col-md-offset-4 khongpadding">

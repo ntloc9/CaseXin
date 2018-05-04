@@ -14,10 +14,23 @@
 <body class="<%= yield (:body_class) %>">
 
   <div class="super_container">
-
+    <div class="thongbao">
+      <% if flash[:notice] %>
+        <div class="alert alert-success alert-dismissible" role="alert" id = "alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= alert %>
+        </div>
+      <% end %>
+    </div>
 	<!-- Header -->
 
-	<header class="header trans_300">
+  <header class="header trans_300">
 
 		<!-- Top Navigation -->
 
@@ -182,8 +195,8 @@
 <!-- Content -->
 
   <div class="container">
-  <%= yield %>
-</div>
+    <%= yield %>
+  </div>
 
 
 	<!-- Newsletter -->
