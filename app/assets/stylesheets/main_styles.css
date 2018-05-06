@@ -1784,6 +1784,7 @@ input#signin_password::placeholder {
 }
 .khongpadding{
 	padding-left: 0px!important;
+	padding-right: 0px!important;
 }
 
 .labelfix{
@@ -1802,11 +1803,38 @@ input#signin_password::placeholder {
 	width: 120%;
 }
 .newcase{
-	margin-top: 180px;
+	/* margin-top: 180px; */
 }
 .thongbao{
 	margin-top: 152px;
 }
 .alert{
 	margin-bottom: 0!important;
+}
+.khungbovuong{
+	width:  300px!important;
+  height: 50px;
+  padding-top:  9px;
+  border-radius: 16px;
+  background: #F2F2F2;
+	margin-bottom: 16px;
+}
+.khungbovuongcase{
+	width:  300px!important;
+  height: 50px;
+  padding-top:  9px;
+  border-radius: 16px;
+  background: #F2F2F2;
+	margin-bottom: 16px;
+}
+abbr {
+    text-decoration: none!important;
+}
+.case-preview-thumb{
+	height: 400px;
+	widows: 300px;
+	margin-top: 20px;
+}
+.cachtop20{
+	margin-top: 20px;
 }
