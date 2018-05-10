@@ -21,6 +21,14 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-md-2">
+          <%= f.input :new, label: 'Hàng mới?', input_html: { class: "form-control"}, as: :boolean, wrapper_html: { class: 'form-group' }, checked_value: true, unchecked_value: false  %>
+        </div>
+        <div class="col-md-2">
+          <%= f.input :sale, label: 'Sale', input_html: { class: "form-control", value: "0"},wrapper_html: { class: 'form-group' } %>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-4">
           <label class="select required" for="case_model">Thêm hình ảnh</label>
           <div class="custom-file">

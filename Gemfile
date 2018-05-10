@@ -41,7 +41,6 @@ gem 'gravatar_image_tag'
 gem 'carrierwave'
 gem "mini_magick"
 gem 'owlcarousel2-rails'
-gem 'jquery-ui-rails'
 gem "font-awesome-rails"
 gem 'jquery-easing-rails'
 

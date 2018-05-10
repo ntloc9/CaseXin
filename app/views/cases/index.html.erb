@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'mainindex' %>
+<%= stylesheet_link_tag 'responsive' %>
 	<!-- Slider -->
 
 	<div class="main_slider" style="background-image:url(assets/slider_1.jpg)">
@@ -72,21 +74,33 @@
 					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 
 						<!-- Product 1 -->
-
-						<div class="product-item men">
-							<div class="product discount product_filter">
-								<div class="product_image">
-									<img src="assets/product_1.png" alt="">
+						<% @cases.each do |c| %>
+							<div class="product-item men">
+								<div class="product discount product_filter">
+									<div class="product_image">
+										<%= link_to image_tag(c.image_url(:thumb)), c %>
+									</div>
+									<div class="favorite favorite_left"></div>
+									<% if c.sale? %>
+										<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+											</span>-<%= c.sale %>%<span>
+										</div>
+									<% end %>
+									<% if c.new? %>
+										<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
+											<span>new</span>
+										</div>
+									<% end %>
+									<div class="product_info">
+										<h6 class="product_name"><a><%= link_to c.title, c %></a></h6>
+										<div class="product_price"><%= number_to_currency(c.price, precision: 0, unit: "₫", format: "%n %u", delimiter: ".") %></div>
+									</div>
 								</div>
-								<div class="favorite favorite_left"></div>
-								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
-								<div class="product_info">
-									<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital Camera (Silver)</a></h6>
-									<div class="product_price">$520.00<span>$590.00</span></div>
-								</div>
+								<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-						</div>
+							<% end %>
+
+
 
 						<!-- Product 2 -->
 
@@ -96,7 +110,6 @@
 									<img src="assets/product_2.png" alt="">
 								</div>
 								<div class="favorite"></div>
-								<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
 								<div class="product_info">
 									<h6 class="product_name"><a href="single.html">Samsung CF591 Series Curved 27-Inch FHD Monitor</a></h6>
 									<div class="product_price">$610.00</div>
@@ -608,3 +621,4 @@
 <br>
 
 <%= link_to 'New Case', new_case_path %>
+<%= javascript_include_tag 'custom' %>

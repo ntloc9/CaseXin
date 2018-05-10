@@ -1,13 +1,15 @@
 class CasesController < ApplicationController
   before_action :set_case, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :categories]
 
   # GET /cases
   # GET /cases.json
   def index
     @cases = Case.all.order("created_at desc")
   end
-
+  def categories
+    @cases = Case.all.order("created_at desc")
+  end
   # GET /cases/1
   # GET /cases/1.json
   def show
@@ -70,7 +72,7 @@ class CasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def case_params
-      params.require(:case).permit(:brand, :model, :price, :title, :description, :image)
+      params.require(:case).permit(:brand, :model, :price, :title, :description, :image, :sale, :new, :quantity)
     end
 
 end
