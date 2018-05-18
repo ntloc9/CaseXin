@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
-  resources :line_items
-  resources :carts
-  resources :cases
+  # get 'order_items/create'
+  #
+  # get 'order_items/update'
+  #
+  # get 'order_items/destroy'
+  #
+  # get 'carts/show'
+
+  resources :carts, only: [:show]
+  resources :oplungs
+  resources :order_items, only: [:create, :update, :destroy]
   devise_for :users, controllers: {
     registrations: 'registrations'
   }
-  root 'cases#index'
-  get 'categories', to: 'cases#categories'
+  root 'oplungs#index'
+  get 'categories', to: 'oplungs#categories'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

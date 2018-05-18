@@ -43,6 +43,7 @@ gem "mini_magick"
 gem 'owlcarousel2-rails'
 gem "font-awesome-rails"
 gem 'jquery-easing-rails'
+gem 'rails_refactor'
 
 
 group :development, :test do

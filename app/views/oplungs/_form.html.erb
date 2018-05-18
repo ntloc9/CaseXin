@@ -1,0 +1,46 @@
+
+<div class="newcase" >
+  <%= simple_form_for(@oplung) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <div class="row">
+        <div class="col-md-8"><%= f.input :title, label: 'Tiêu đề ', require: true, autofocus: true, wrapper_html: { class: 'form-group' }, input_html: { class: "form-control"} %></div>
+        <div class="col-md-4"><%= f.input :brand, label: 'Hãng', input_html: { class: "form-control"}, wrapper_html: { class: 'form-group' } %></div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <%= f.input :model, wrapper_html: { class: 'form-group' }, input_html: { class: "form-control"},collection: Oplung::MODELIP, selected: "Iphone 6", prompt: "Select model"  %>
+        </div>
+        <div class="col-md-4">
+          <%= f.input :price, label: 'Giá', input_html: { class: "form-control", value: ".000"}, wrapper_html: { class: 'form-group' }%>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :description, label: 'Mô tả', input_html: { class: "form-control"}, as: :text ,wrapper_html: { class: 'form-group' } %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <%= f.input :new, label: 'Hàng mới?', input_html: { class: "form-control"}, as: :boolean, wrapper_html: { class: 'form-group' }, checked_value: true, unchecked_value: false  %>
+        </div>
+        <div class="col-md-2">
+          <%= f.input :sale, label: 'Sale', input_html: { class: "form-control", value: "0"},wrapper_html: { class: 'form-group' } %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <label class="select required" for="case_model">Thêm hình ảnh</label>
+          <div class="custom-file">
+            <%= f.input :image, wrapper: false, as: :file, label: false, input_html: { class: "custom-file-input case-image-upload"}, id: "customFile" %>
+            <label class="custom-file-label" for="customFile">Chọn file</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <output id="list"></output>
+    <div class="form-actions cachtop20">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>
