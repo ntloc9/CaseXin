@@ -6,16 +6,13 @@ class OplungsController < ApplicationController
   # GET /oplungs.json
   def index
     @oplungs = Oplung.all.order("created_at desc")
-    @order_item = current_order.order_items.new
   end
   def categories
     @oplungs = Oplung.all.order("created_at desc")
-    @order_item = current_order.order_items.new
   end
   # GET /oplungs/1
   # GET /oplungs/1.json
   def show
-    @order_item = current_order.order_items.new
   end
 
   # GET /oplungs/new

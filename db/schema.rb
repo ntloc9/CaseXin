@@ -10,13 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180514084458) do
+ActiveRecord::Schema.define(version: 20180520134636) do
+
+  create_table "brand_phone_models", force: :cascade do |t|
+    t.integer "brand_id", null: false
+    t.integer "phone_model_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_brand_phone_models_on_brand_id"
+    t.index ["phone_model_id"], name: "index_brand_phone_models_on_phone_model_id"
+  end
+
+  create_table "brands", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "oplungs", force: :cascade do |t|
-    t.string "brand"
-    t.string "model"
-    t.string "price", default: "0"
-    t.string "title"
+    t.decimal "price", default: "0.0"
+    t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
@@ -26,35 +39,33 @@ ActiveRecord::Schema.define(version: 20180514084458) do
     t.boolean "new"
     t.integer "quantity"
     t.boolean "active"
+    t.integer "phone_model_id"
+    t.integer "brand_id"
+    t.index ["brand_id"], name: "index_oplungs_on_brand_id"
+    t.index ["phone_model_id"], name: "index_oplungs_on_phone_model_id"
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.integer "oplung_id"
-    t.integer "order_id"
-    t.decimal "unit_price", precision: 12, scale: 3
-    t.integer "quantity"
-    t.decimal "total_price", precision: 12, scale: 3
+    t.integer "quantity", null: false
+    t.decimal "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["oplung_id"], name: "index_order_items_on_oplung_id"
+    t.integer "order_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
   end
 
-  create_table "order_statuses", force: :cascade do |t|
-    t.string "name"
+  create_table "orders", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name", null: false
+    t.decimal "sub_total", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.decimal "subtotal", precision: 12, scale: 3
-    t.decimal "tax", precision: 12, scale: 3
-    t.decimal "shipping", precision: 12, scale: 3
-    t.decimal "total", precision: 12, scale: 3
-    t.integer "order_status_id"
+  create_table "phone_models", force: :cascade do |t|
+    t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_status_id"], name: "index_orders_on_order_status_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,7 +81,7 @@ ActiveRecord::Schema.define(version: 20180514084458) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "username"
+    t.string "username", null: false
     t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
