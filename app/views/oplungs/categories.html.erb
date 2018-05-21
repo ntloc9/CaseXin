@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'maincategories' %>
 <%= stylesheet_link_tag 'categories_responsive' %>
 <%= javascript_include_tag 'categories_custom' %>
-
+<% @oplungs.each do |oplung| %>
 <div class="container product_section_container">
   <div class="row">
     <div class="col product_section clearfix">
@@ -20,7 +20,7 @@
       <div class="sidebar">
         <div class="sidebar_section">
           <div class="sidebar_title">
-            <h5>Product Category</h5>
+            <h5>Product Category(<% @oplungs.count %>)</h5>
           </div>
           <ul class="sidebar_categories">
             <li><a href="#">Men</a></li>
@@ -138,8 +138,8 @@
 
                 <!-- Product 1 -->
 
-                <% @oplungs.each do |oplung| %>
-                  <div class="product-item men">
+
+                  <div class="product-item <me></me>n">
                     <div class="product discount product_filter">
                       <div class="product_image">
                         <%= link_to image_tag(oplung.image_url(:thumb)), oplung %>
@@ -149,15 +149,9 @@
                       <div class="product_info">
                         <h6 class="product_name"><a><%= link_to oplung.title, oplung %></a></h6>
                         <div class="product_price"><%= number_to_currency(oplung.price, precision: 0, unit: "₫", format: "%n %u", delimiter: ".") %></div>
-                        <%= form_for @order_item, remote: true do |f| %>
-                          <%= f.number_field :quantity, value: 1, class: "form-control", min: 1%>
-                          <%= f.hidden_field :oplung_id, value: oplung.id %>
-                          <%= f.submit "Add to Cart", class: "btn btn-primary" %>
-                        <%end%>
                       </div>
                     </div>
-
-                    <!-- <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div> -->
+                    <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
                   </div>
                 <% end %>
 

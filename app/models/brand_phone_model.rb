@@ -1,4 +1,4 @@
-class BrandPhoneModel < ApplicationRecord
+class BrandPhonemodel < ApplicationRecord
   belongs_to :brand
-  belongs_to :phone_model
+  belongs_to :phonemodel
 end

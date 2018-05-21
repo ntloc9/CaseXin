@@ -17,7 +17,7 @@ class OplungsController < ApplicationController
 
   # GET /oplungs/new
   def new
-    @oplung = current_user.oplungs.build
+    @oplung = Oplung.new
   end
 
   # GET /oplungs/1/edit
@@ -72,7 +72,7 @@ class OplungsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def oplung_params
-      params.require(:oplung).permit(:brand, :model, :price, :title, :description, :image, :sale, :new, :quantity)
+      params.require(:oplung).permit(:price, :title, :description, :image, :sale, :new, :quantity, :brand_id, :phonemodel_id)
     end
 
 end

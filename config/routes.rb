@@ -16,5 +16,9 @@ Rails.application.routes.draw do
   root 'oplungs#index'
   get 'categories', to: 'oplungs#categories'
 
+  resources :phones, only: [:index] do
+    resources :phonemodels, only: [:index]
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

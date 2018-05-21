@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180520134636) do
+ActiveRecord::Schema.define(version: 20180520183644) do
 
-  create_table "brand_phone_models", force: :cascade do |t|
+  create_table "brand_phonemodels", force: :cascade do |t|
     t.integer "brand_id", null: false
-    t.integer "phone_model_id", null: false
+    t.integer "phonemodel_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["brand_id"], name: "index_brand_phone_models_on_brand_id"
-    t.index ["phone_model_id"], name: "index_brand_phone_models_on_phone_model_id"
+    t.index ["brand_id"], name: "index_brand_phonemodels_on_brand_id"
+    t.index ["phonemodel_id"], name: "index_brand_phonemodels_on_phonemodel_id"
   end
 
   create_table "brands", force: :cascade do |t|
@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(version: 20180520134636) do
     t.boolean "new"
     t.integer "quantity"
     t.boolean "active"
-    t.integer "phone_model_id"
+    t.integer "phonemodel_id"
     t.integer "brand_id"
     t.index ["brand_id"], name: "index_oplungs_on_brand_id"
-    t.index ["phone_model_id"], name: "index_oplungs_on_phone_model_id"
+    t.index ["phonemodel_id"], name: "index_oplungs_on_phonemodel_id"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -62,7 +62,15 @@ ActiveRecord::Schema.define(version: 20180520134636) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "phone_models", force: :cascade do |t|
+  create_table "phonemodels", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "phone_id"
+    t.index ["phone_id"], name: "index_phonemodels_on_phone_id"
+  end
+
+  create_table "phones", force: :cascade do |t|
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
