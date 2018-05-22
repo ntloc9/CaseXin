@@ -1,8 +1,8 @@
 class Oplung < ApplicationRecord
     belongs_to :user, optional: true
     belongs_to :brand
-    has_many :order_items
     belongs_to :phonemodel
+    has_many :order_items
     default_scope { where(active: true) }
 
 
