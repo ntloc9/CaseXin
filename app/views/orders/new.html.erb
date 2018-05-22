@@ -1,0 +1,18 @@
+<h2>Checkout</h2>
+
+<%= simple_form_for(@order, url: checkout_path) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="col-md-4 col-md-offset-4 khongpadding">
+      <%= f.input :first_name, id: "register_email",input_html: { class:"input" }, required: true, autofocus: true, placeholder: "Enter your name" %>
+    </div>
+    <div class="col-md-4 col-md-offset-4 khongpadding">
+      <%= f.input :last_name, id: "register_email",input_html: { class:"input" }, required: true, placeholder: "Enter your name" %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Checkout", id: "register_btn" %>
+  </div>
+<% end %>

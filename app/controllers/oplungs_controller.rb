@@ -9,6 +9,7 @@ class OplungsController < ApplicationController
   end
   def categories
     @oplungs = Oplung.all.order("created_at desc")
+    
   end
   # GET /oplungs/1
   # GET /oplungs/1.json
