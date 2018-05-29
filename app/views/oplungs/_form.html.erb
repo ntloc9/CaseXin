@@ -1,6 +1,6 @@
 
 <div class="newcase" >
-  <%= simple_form_for(@oplung) do |f| %>
+  <%= simple_form_for(@oplung, html: {multipart: true } ) do |f| %>
     <%= f.error_notification %>
     <div class="form-inputs">
       <div class="row">
@@ -28,15 +28,21 @@
           <%= f.input :sale, label: 'Sale', input_html: { class: "form-control", value: "0"},wrapper_html: { class: 'form-group' } %>
         </div>
       </div>
-      <div class="row">
+      <%= f.fields_for :image_attachments do |fi| %>
+      <!-- <div class="row">
         <div class="col-md-4">
           <label class="select required" for="case_model">Thêm hình ảnh</label>
           <div class="custom-file">
-            <%= f.input :image, wrapper: false, as: :file, label: false, input_html: { class: "custom-file-input case-image-upload"}, id: "customFile" %>
+            <%#= fi.file_field :image, multiple: true, name: "image_attachments[image][]"%>
             <label class="custom-file-label" for="customFile">Chọn file</label>
           </div>
         </div>
-      </div>
+      </div> -->
+        <div class="field">
+          <%= fi.label :image %><br>
+          <%= fi.file_field :image, multiple: true, name: "image_attachments[image][]", class: "upload-image" %>
+        </div>
+      <% end %>
     </div>
     <output id="list"></output>
     <div class="form-actions cachtop20">

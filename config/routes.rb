@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :image_attachments
   # get 'order_items/create'
   #
   # get 'order_items/update'

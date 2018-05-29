@@ -22,14 +22,20 @@ delegate :sub_total,to: :order
     order_item = order.items.find_or_initialize_by(
       oplung_id: oplung_id
     )
+    if order_item
+      order_item.increment(:quantity)
+    else
+      order_item.price = oplung.price
+      order_item.quantity = quantity
+    end
 
-    order_item.price = oplung.price
-    order_item.quantity = quantity
     ActiveRecord::Base.transaction do
       order_item.save
       update_sub_total!
     end
   end
+
+
 
   def remove_item(id:)
     ActiveRecord::Base.transaction do

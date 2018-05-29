@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180522095121) do
+ActiveRecord::Schema.define(version: 20180528192858) do
 
   create_table "brand_phonemodels", force: :cascade do |t|
     t.integer "brand_id", null: false
@@ -27,12 +27,19 @@ ActiveRecord::Schema.define(version: 20180522095121) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "image_attachments", force: :cascade do |t|
+    t.integer "oplung_id"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "oplungs", force: :cascade do |t|
     t.decimal "price", default: "0.0"
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
+    t.string "thumbnail"
     t.integer "user_id"
     t.string "description"
     t.integer "sale"

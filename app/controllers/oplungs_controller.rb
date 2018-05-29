@@ -9,7 +9,7 @@ class OplungsController < ApplicationController
   end
   def categories
     @oplungs = Oplung.all.order("created_at desc")
-    
+
   end
   # GET /oplungs/1
   # GET /oplungs/1.json
@@ -19,6 +19,7 @@ class OplungsController < ApplicationController
   # GET /oplungs/new
   def new
     @oplung = Oplung.new
+    @image_attachment = @oplung.image_attachments.build
   end
 
   # GET /oplungs/1/edit
@@ -28,10 +29,13 @@ class OplungsController < ApplicationController
   # POST /oplungs
   # POST /oplungs.json
   def create
-    @oplung = current_user.oplungs.build(oplung_params)
+    @oplung = current_user.oplungs.new(oplung_params)
 
     respond_to do |format|
       if @oplung.save
+        params[:image_attachments]['image'].each do |a|
+          @image_attachment = @oplung.image_attachments.create!(:image => a)
+        end
         format.html { redirect_to @oplung, notice: 'oplung was successfully created.' }
         format.json { render :show, status: :created, location: @oplung }
       else
@@ -73,7 +77,8 @@ class OplungsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def oplung_params
-      params.require(:oplung).permit(:price, :title, :description, :image, :sale, :new, :quantity, :brand_id, :phonemodel_id)
+      params.require(:oplung).permit(:price, :title, :description, :sale, :new, :quantity, :thumbnail, :brand_id, :phonemodel_id, image_attachments_attributes: [:id, :oplung_id, :image])
     end
+
 
 end

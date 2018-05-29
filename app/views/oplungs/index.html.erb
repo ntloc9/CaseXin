@@ -78,7 +78,7 @@
 							<div class="product-item men">
 								<div class="product discount product_filter">
 									<div class="product_image">
-										<%= link_to image_tag(oplung.image_url(:thumb)), oplung %>
+										<%= link_to image_tag(oplung.image_attachments[1].image_url(:thumb)), oplung %>
 									</div>
 									<div class="favorite favorite_left"></div>
 									<% if oplung.sale? %>

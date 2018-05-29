@@ -8,7 +8,7 @@ class OrderItemsController < ApplicationController
       oplung_id: params[:oplung_id],
       quantity: params[:quantity]
     )
-    
+
     redirect_to cart_path
   end
 
