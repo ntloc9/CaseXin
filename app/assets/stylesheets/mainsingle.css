@@ -63,11 +63,20 @@
 	-moz-transition: all 0.3s ease;
 	-ms-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
+	transition: all 0.3s ease!important;
+	display: block;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: bold!important;
+	text-align: center;
+	line-height: 40px;
+	width: 100%;
 }
 .red_button:hover
 {
 	background: #FE7C7F !important;
+	cursor: pointer;
 }
 .red_button a
 {
@@ -306,11 +315,15 @@
 {
 	color: #b5aec4;
 }
+input#quantity {
+    width: 50px;
+    margin-left: 20px;
+}
 .add_to_cart_button
 {
 	width: 160px;
-	margin-left: 19px;
 	font-size: 12px !important;
+	border: none;
 }
 .product_favorite
 {

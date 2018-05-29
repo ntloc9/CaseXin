@@ -16,14 +16,16 @@ delegate :sub_total,to: :order
     order.items.sum(:quantity)
   end
 
-  def add_item(oplung_id:, quantity: 1)
+  def add_item(oplung_id:, quantity:)
     oplung = Oplung.find(oplung_id)
 
     order_item = order.items.find_or_initialize_by(
       oplung_id: oplung_id
     )
+
     if order_item
       order_item.increment(:quantity)
+      order_item.price = oplung.price
     else
       order_item.price = oplung.price
       order_item.quantity = quantity
