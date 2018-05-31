@@ -3,11 +3,16 @@ class OrdersController < ApplicationController
     @order = current_cart.order
   end
 
+  def index
+      
+    @oders = Order.all
+  end
+
   def create
     @order = current_cart.order
     if @order.update_attributes(order_params.merge(status: 'open'))
       session[:cart_token] = nil
-      redirect_to root_path
+      format.html { redirect_to root_path, notice: 'Đã đặt hàng thành công.' }
     else
       render 'new'
     end
@@ -15,6 +20,6 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:last_name, :first_name)
+    params.require(:order).permit(:name, :phone, :diachi)
   end
 end

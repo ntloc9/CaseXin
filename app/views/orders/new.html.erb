@@ -1,18 +1,22 @@
-<h2>Checkout</h2>
+<%= stylesheet_link_tag 'checkout' %>
+<h2 class="title-session">Checkout</h2>
 
 <%= simple_form_for(@order, url: checkout_path) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <div class="col-md-4 col-md-offset-4 khongpadding">
-      <%= f.input :first_name, id: "register_email",input_html: { class:"input" }, required: true, autofocus: true, placeholder: "Enter your name" %>
+      <%= f.text_field :name, id: "register_email",input_html: { class:"input" },required: true, autofocus: true, placeholder: "Nguyễn Văn A" %>
     </div>
     <div class="col-md-4 col-md-offset-4 khongpadding">
-      <%= f.input :last_name, id: "register_email",input_html: { class:"input" }, required: true, placeholder: "Enter your name" %>
+      <%= f.text_field :phone, id: "register_email",input_html: { class:"input"}, required: true, placeholder: "0918xxxxxx" %>
+    </div>
+    <div class="col-md-4 col-md-offset-4 khongpadding">
+      <%= f.text_field :diachi, id: "register_email",input_html: { class:"input" }, required: true, placeholder: "1, Lễ Văn Sỹ, phường 1, quận Tân Bình" %>
     </div>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Checkout", id: "register_btn" %>
+    <%= f.button :submit, "Checkout", class: "add_to_cart_button red_button" %>
   </div>
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180528192858) do
+ActiveRecord::Schema.define(version: 20180531071736) do
 
   create_table "brand_phonemodels", force: :cascade do |t|
     t.integer "brand_id", null: false
@@ -64,13 +64,14 @@ ActiveRecord::Schema.define(version: 20180528192858) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "name"
     t.decimal "sub_total", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "token"
     t.string "status", default: "cart"
+    t.string "diachi"
+    t.integer "phone"
   end
 
   create_table "phonemodels", force: :cascade do |t|
