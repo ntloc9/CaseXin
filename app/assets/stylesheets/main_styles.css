@@ -284,6 +284,10 @@ section
 	text-transform: uppercase;
 }
 
+.title-session{
+	font-family: 'Varela Round', sans-serif;
+}
+
 /*********************************
 3.1 Currency
 *********************************/
@@ -563,7 +567,7 @@ section
 .navbar
 {
 	width: auto;
-	height: 100px;
+	height: 70px;
 	float: right;
 	padding-left: 0px;
 	padding-right: 0px;
@@ -579,10 +583,10 @@ ul.navbar_menu {
 {
 	display: block;
 	color: #1e1e27;
-	font-size: 13px;
-	font-weight: 500;
+	font-size: 12px;
+	font-weight: bold;
 	text-transform: uppercase;
-	padding: 20px;
+	padding: 15px;
 	-webkit-transition: color 0.3s ease;
 	-moz-transition: color 0.3s ease;
 	-ms-transition: color 0.3s ease;
@@ -834,7 +838,7 @@ ul.navbar_menu {
 }
 .logo_container a
 {
-	font-size: 24px;
+	font-size: 18px;
 	color: #1e1e27;
 	font-weight: 700;
 	text-transform: uppercase;

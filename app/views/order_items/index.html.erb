@@ -1,33 +1,33 @@
-
-<h2>Current Cart</h2>
-  <%= link_to pluralize(current_cart.items_count, 'item'), cart_path %>
-<table>
-  <thead>
-    <tr>
-      <td>Product</td>
-      <td>Price</td>
-      <td>Quantity</td>
-      <td></td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.oplung.title %></td>
-        <td><%= number_to_currency(item.price, precision: 0, unit: "₫", format: "%n %u", delimiter: ".") %></td>
-        <td><%= item.quantity %></td>
-        <td>
-          <%= form_for item, method: :delete do |f| %>
-            <%= f.submit "Remove" %>
+<%= stylesheet_link_tag 'cart' %>
+<h2 class= "title-session" align="center">Giỏ hàng </h2>
+<section class="cart bgwhite p-t-70 p-b-100">
+  <div class="container">
+    <!-- Cart item -->
+    <div class="container-table-cart pos-relative">
+      <div class="wrap-table-shopping-cart bgwhite">
+        <table class="table-shopping-cart">
+          <tr class="table-head">
+            <th class="column-1">Model</th>
+            <th class="column-2">Product</th>
+            <th class="column-3">Price</th>
+            <th class="column-4 p-l-70">Quantity</th>
+          </tr>
+          <% @items.each do |item| %>
+          <tr class="table-row">
+            <td class="column-1"></td>
+            <td class="column-2"><%= item.oplung.title %></td>
+            <td class="column-3"><%= number_to_currency(item.price, precision: 0, unit: "₫", format: "%n %u", delimiter: ".") %></td>
+            <td class="column-4"><%= item.quantity %></td>
+          </tr>
           <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-
-  <tfoot>
-    <td colspan="4" align = "right" ><%=number_to_currency(current_cart.sub_total, precision: 0, unit: "₫", format: "%n %u", delimiter: ".") %></td>
-  </tfoot>
-</table>
-
-<%= link_to "Checkout" ,checkout_path %>
+          <tr class="table-row">
+            <td class="column-1"></td>
+            <td class="column-2 tong">Tổng: <%=number_to_currency(current_cart.sub_total, precision: 0, unit: "₫", format: "%n %u", delimiter: ".") %></td>
+            <td class="column-3"><div class = "red_button add_to_cart_button"><%= link_to "Checkout" ,checkout_path%></div></td>
+            <td class="column-4"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

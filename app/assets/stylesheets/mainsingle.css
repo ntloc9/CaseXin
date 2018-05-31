@@ -349,7 +349,10 @@ input#quantity {
 	content:'\f004';
 	color: #fe4c50;
 }
-
+.badge{
+	background-color: #443c3c;
+	color: white;
+}
 /*********************************
 7. Tabs
 *********************************/

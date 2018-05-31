@@ -21,7 +21,7 @@
           <div class="col-lg-3 thumbnails_col order-lg-1 order-2">
             <div class="single_product_thumbnails">
               <ul>
-                <% @oplung.image_attachments.each do |d| %>
+                <% @oplung.image_attachments.first(3).each do |d| %>
                 <li><%= image_tag(d.image_url(:thumb), data: {image:"#{d.image_url(:default)}"}) %></li>
                 <!-- <li class="active"><%#= image_tag(@oplung.image_attachments[2].image_url(:thumb), data: {image:"#{@oplung.image_attachments[2].image_url(:default)}"}) %></li>
                 <li><img src="assets/images/single/single_3_thumb.jpg" alt="" data-image="assets/images/single/single_3.jpg"></li> -->
@@ -56,23 +56,19 @@
           <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
         </ul>
         <div class="product_color">
-          <span>Select Color:</span>
-          <ul>
-            <li style="background: #e54e5d"></li>
-            <li style="background: #252525"></li>
-            <li style="background: #60b3f3"></li>
-          </ul>
+          <span>Có sẵn cho:  </span>
         </div>
         <%= form_tag order_items_path do %>
-          <%= hidden_field_tag :oplung_id, @oplung.id %>
           <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
             <!-- <span>Số lượng:</span> -->
-              <%= hidden_field_tag :quantity, 1 %>
-            <!-- <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div> -->
+            <%= hidden_field_tag :oplung_id, @oplung.id %>
+            <%= hidden_field_tag :quantity, 1 %>
+              <!-- <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div> -->
             <div><%= submit_tag 'add to cart', class:"red_button add_to_cart_button" %></div>
             <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
           </div>
         <% end %>
+        <span class="tag">Tag </span><span class = "badge" ><%= @oplung.phonemodel.title%> </span>
       </div>
     </div>
   </div>

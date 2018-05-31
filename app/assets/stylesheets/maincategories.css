@@ -495,7 +495,7 @@
 .product-item
 {
 	width: 25%;
-	height: 380px;
+	height: 320px;
 	cursor: pointer;
 }
 .product-item::after

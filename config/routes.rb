@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :phonemodels
   resources :image_attachments
   # get 'order_items/create'
   #
